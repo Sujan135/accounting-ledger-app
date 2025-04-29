@@ -21,8 +21,20 @@ public class Main {
                 case "D":
                     addDeposit(scanner);
                     break;
+                case "P":
+                    makePayment(scanner);
+                    break;
+                case "L":
+                    displayLedger();
+                    break;
+                case "X":
+                    System.out.println("Exiting....");
+                    scanner.close();
+                    return;
+                default:
+                    System.out.println("Invalid choice. Please try again:");
+                    break;
             }
-
         }
     }
 
@@ -36,6 +48,22 @@ public class Main {
         scanner.nextLine();
 
         System.out.println("Deposit of $" + amount + " added with description: " + description);
+    }
+
+    // Created method for making a payment
+    private static void makePayment(Scanner scanner) {
+        System.out.println("Enter payment description: ");
+        String description = scanner.nextLine();
+
+        System.out.println("Enter payment amount: ");
+        double amount = scanner.nextDouble();
+        scanner.nextLine();
+
+        System.out.println("Payment of $" + amount + " added with description: " + description);
+    }
+
+    private static void displayLedger() {
+        System.out.println("Displaying the Ledger");
     }
 
 }

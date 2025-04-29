@@ -7,7 +7,6 @@ import java.util.Scanner;
 public class Main {
     static ArrayList<Transaction> transactions = new ArrayList<>();
 
-
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
@@ -74,6 +73,13 @@ public class Main {
 
     private static void displayLedger() {
         System.out.println("Displaying the Ledger");
+        if (transactions.isEmpty()) {
+            System.out.println("No transaction recorded.");
+        } else {
+            for (Transaction transaction : transactions) {
+                System.out.println(transaction);
+            }
+        }
     }
 
 }

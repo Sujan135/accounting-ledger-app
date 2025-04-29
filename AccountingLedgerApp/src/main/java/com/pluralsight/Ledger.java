@@ -23,6 +23,7 @@ public class Ledger {
 
             switch (choice) {
                 case "A":
+                    displayAll();
                     break;
                 case "D":
                     break;
@@ -35,4 +36,12 @@ public class Ledger {
             }
         }
     }
+
+    private void displayAll() {
+        System.out.println("All Transactions:");
+        for (int i = transactions.size()-1; i >= 0; i--){
+            System.out.println(transactions.get(i));
+        }
+    }
+
 }

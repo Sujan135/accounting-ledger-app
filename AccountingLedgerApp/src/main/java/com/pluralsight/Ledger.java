@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Ledger {
-    private final ArrayList<Transaction> transactions;
+    private ArrayList<Transaction> transactions;
 
     public Ledger(ArrayList<Transaction> transactions) {
         this.transactions = transactions;

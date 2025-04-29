@@ -67,6 +67,7 @@ public class Main {
         scanner.nextLine();
 
         Transaction payment = new Transaction("Payment", description, -amount);
+        transactions.add(payment);
 
         System.out.println("Payment of $" + amount + " added with description: " + description);
     }

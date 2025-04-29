@@ -11,3 +11,9 @@ This project provides users with an easy way to record deposits, payments, and v
 •	Generate Reports: Run reports for different time periods like "Month To Date", "Previous Year", etc.
 •	Save and Load from File: Transactions are saved to and loaded from a CSV file, ensuring persistence.
 •	Exit the Application: Exit the program smoothly.
+
+# My Project
+
+Welcome to my project! Below is the first testing image:
+
+![First Testing Image](https://github.com/Sujan135/accounting-ledger-app/blob/e494537a09077df3b504f7158856f9121b973d81/firstTesting.jpg)

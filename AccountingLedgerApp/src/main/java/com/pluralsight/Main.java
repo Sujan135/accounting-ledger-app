@@ -1,0 +1,41 @@
+package com.pluralsight;
+
+import java.util.Locale;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        while(true) {
+            System.out.println("Welcome to the Accounting Ledger!");
+            System.out.println("Please select an option:");
+            System.out.println("D. Add Deposit");
+            System.out.println("P. Make Payment");
+            System.out.println("L. Ledger");
+            System.out.println("x. Exit");
+
+            String choice = scanner.nextLine().toUpperCase();
+
+            switch (choice) {
+                case "D":
+                    addDeposit(scanner);
+                    break;
+            }
+
+        }
+    }
+
+    // Created method to add deposit
+    private static void addDeposit(Scanner scanner) {
+        System.out.println("Enter deposit description: ");
+        String description = scanner.nextLine();
+
+        System.out.println("Enter deposit amount: ");
+        double amount = scanner.nextDouble();
+        scanner.nextLine();
+
+        System.out.println("Deposit of $" + amount + " added with description: " + description);
+    }
+
+}

@@ -51,7 +51,7 @@ public class Main {
         double amount = scanner.nextDouble();
         scanner.nextLine();
 
-        Transaction deposit = new Transaction("Deposit", amount, description);
+        Transaction deposit = new Transaction("Deposit", description, amount);
         transactions.add(deposit);
 
         System.out.println("Deposit of $" + amount + " added with description: " + description);
@@ -66,7 +66,7 @@ public class Main {
         double amount = scanner.nextDouble();
         scanner.nextLine();
 
-        Transaction payment = new Transaction("Payment", amount,description);
+        Transaction payment = new Transaction("Payment", description, -amount);
 
         System.out.println("Payment of $" + amount + " added with description: " + description);
     }

@@ -1,9 +1,13 @@
 package com.pluralsight;
 
+import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Scanner;
 
 public class Main {
+    static ArrayList<Transaction> transactions = new ArrayList<>();
+
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
@@ -47,6 +51,9 @@ public class Main {
         double amount = scanner.nextDouble();
         scanner.nextLine();
 
+        Transaction deposit = new Transaction("Deposit", amount, description);
+        transactions.add(deposit);
+
         System.out.println("Deposit of $" + amount + " added with description: " + description);
     }
 
@@ -58,6 +65,8 @@ public class Main {
         System.out.println("Enter payment amount: ");
         double amount = scanner.nextDouble();
         scanner.nextLine();
+
+        Transaction payment = new Transaction("Payment", amount,description);
 
         System.out.println("Payment of $" + amount + " added with description: " + description);
     }

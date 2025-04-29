@@ -71,6 +71,7 @@ public class Main {
         System.out.println("Payment of $" + amount + " added with description: " + description);
     }
 
+//    Displaying ledger
     private static void displayLedger() {
         System.out.println("Displaying the Ledger");
         if (transactions.isEmpty()) {

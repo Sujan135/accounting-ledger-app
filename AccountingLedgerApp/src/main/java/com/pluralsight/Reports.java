@@ -31,10 +31,13 @@ public class Reports {
                     forPreviousMonth();
                     break;
                 case "3":
+                    forYearToDate();
                     break;
                 case "4":
+                    forPreviousYear();
                     break;
                 case "5":
+                    searchByVendor();
                     break;
                 case "0":
                     return;
@@ -44,12 +47,13 @@ public class Reports {
         }
     }
 
+
     private  void forMonthToDate() {
         LocalDate today = LocalDate.now();
         int currentMonth = today.getMonthValue();
         int currentYear = today.getYear();
 
-        System.out.println("Transactions for this month");
+        System.out.println("Transactions for this month:");
 
         for (Transaction transaction : transactions){
             LocalDate transactionDate = transaction.getDate();
@@ -68,6 +72,8 @@ public class Reports {
         int previousMonthValue = previousMonth.getMonthValue();
         int previousYear = previousMonth.getYear();
 
+        System.out.println("Transactions from previous month:");
+
         for (Transaction transaction : transactions){
             LocalDate date = transaction.getDate();
             if (date.getMonthValue() == previousMonthValue &&
@@ -75,6 +81,34 @@ public class Reports {
                 System.out.println(transaction);
             }
         }
+    }
+
+    private void forYearToDate() {
+        int currentYear = LocalDate.now().getYear();
+
+        System.out.println("Transactions from this year:");
+
+        for (Transaction transaction : transactions) {
+            if (transaction.getDate().getYear() == currentYear){
+                System.out.println(transaction);
+            }
+        }
+    }
+
+    private void forPreviousYear() {
+        int previousYear = LocalDate.now().getYear() -1;
+
+        System.out.println("Transactions from previous year:");
+
+        for (Transaction transaction : transactions) {
+            if (transaction.getDate().getYear() == previousYear) {
+                System.out.println(transaction);
+            }
+        }
+    }
+
+    private void searchByVendor() {
+        System.out.println();
     }
 
 }

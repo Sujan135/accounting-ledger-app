@@ -1,6 +1,6 @@
 # accounting-ledger-app
 A simple Java-based command-line application to track and manage financial transactions.
-This project provides users with an easy way to record deposits, payments, and view financial transaction history. The data is stored in a CSV file, making it easy to load, save, and manipulate records. Perfect for small business owners or personal use to track income and expenses.
+This project provides users with an easy way to record deposits, payments, and view financial transaction history. The data is stored in a CSV file, making it easy to load, save, and manipulate records.
 
  Features
 •	Add Deposit: Record deposit transactions to track income.
@@ -20,4 +20,7 @@ Welcome to my project! Below is the testing image:
 ![First Testing Image](https://github.com/Sujan135/accounting-ledger-app/blob/e494537a09077df3b504f7158856f9121b973d81/firstTesting.jpg)
 
 #SecondTesting
-![First Testing Image](https://github.com/Sujan135/capstone-1/blob/013f00b664355608c304da5a21254f5e8aee03cc/mySecondTesting(Ledger).jpg)
+![Second Testing Image](https://github.com/Sujan135/capstone-1/blob/013f00b664355608c304da5a21254f5e8aee03cc/mySecondTesting(Ledger).jpg)
+
+#Thirdtesting
+![Third Testing Image](https://github.com/Sujan135/capstone-1/blob/5a5f6e7b8c39d569b77724cfc4f1df0567f48336/thirdtesting(vendor).jpg

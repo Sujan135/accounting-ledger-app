@@ -1,23 +1,25 @@
 package com.pluralsight;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class Transaction {
-    private LocalDate date;
+    private LocalDateTime dateTime;
     private String description;
     private String vendor;
     private double amount;
 
 
-    public Transaction(LocalDate date, String description, String vendor, double amount ) {
-        this.date = date;
+    public Transaction(LocalDateTime dateTime, String description, String vendor, double amount ) {
+        this.dateTime = dateTime;
         this.description = description;
         this.vendor = vendor;
         this.amount = amount;
     }
 
-    public LocalDate getDate() {
-        return date;
+    public LocalDateTime getDateTime() {
+        return dateTime;
     }
 
     public String getDescription() {
@@ -35,7 +37,7 @@ public class Transaction {
 
 
     public String toString(){
-//        String type = (amount >= 0) ? "Deposit" : "Payment";
-        return  date + " | " + description + " | " + vendor + " | " + amount;
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd|HH:mm:ss");
+        return  dateTime.format(formatter) + "|" + description + "|" + vendor + "|" + amount;
     }
 }

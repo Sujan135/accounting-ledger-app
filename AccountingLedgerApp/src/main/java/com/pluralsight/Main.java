@@ -1,6 +1,7 @@
 package com.pluralsight;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -54,7 +55,7 @@ public class Main {
         System.out.println("Enter vendor name: ");
         String vendor = scanner.nextLine();
 
-        Transaction deposit = new Transaction(LocalDate.now(), description, vendor,amount);
+        Transaction deposit = new Transaction(LocalDateTime.now(), description, vendor,amount);
         transactions.add(deposit);
 
         System.out.println("Deposit of $" + amount + " description: " + description);
@@ -72,7 +73,7 @@ public class Main {
         System.out.println("Enter vendor name: ");
         String vendor = scanner.nextLine();
 
-        Transaction payment = new Transaction(LocalDate.now(), description,vendor,-amount);
+        Transaction payment = new Transaction(LocalDateTime.now(), description,vendor,-amount);
         transactions.add(payment);
 
         System.out.println("Payment of $" + amount + " description: " + description);

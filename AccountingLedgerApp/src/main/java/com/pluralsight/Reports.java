@@ -1,6 +1,7 @@
 package com.pluralsight;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -56,10 +57,10 @@ public class Reports {
         System.out.println("Transactions for this month:");
 
         for (Transaction transaction : transactions){
-            LocalDate transactionDate = transaction.getDate();
+            LocalDateTime transactionDateTime = transaction.getDateTime();
 
-            if (transactionDate.getMonthValue() == currentMonth &&
-                transactionDate.getYear() == currentYear) {
+            if (transactionDateTime.getMonthValue() == currentMonth &&
+                transactionDateTime.getYear() == currentYear) {
                 System.out.println(transaction);
             }
         }
@@ -75,9 +76,9 @@ public class Reports {
         System.out.println("Transactions from previous month:");
 
         for (Transaction transaction : transactions){
-            LocalDate date = transaction.getDate();
-            if (date.getMonthValue() == previousMonthValue &&
-                date.getYear() == previousYear) {
+            LocalDateTime dateTime = transaction.getDateTime();
+            if (dateTime.getMonthValue() == previousMonthValue &&
+                dateTime.getYear() == previousYear) {
                 System.out.println(transaction);
             }
         }
@@ -89,7 +90,7 @@ public class Reports {
         System.out.println("Transactions from this year:");
 
         for (Transaction transaction : transactions) {
-            if (transaction.getDate().getYear() == currentYear){
+            if (transaction.getDateTime().getYear() == currentYear){
                 System.out.println(transaction);
             }
         }
@@ -101,7 +102,7 @@ public class Reports {
         System.out.println("Transactions from previous year:");
 
         for (Transaction transaction : transactions) {
-            if (transaction.getDate().getYear() == previousYear) {
+            if (transaction.getDateTime().getYear() == previousYear) {
                 System.out.println(transaction);
             }
         }

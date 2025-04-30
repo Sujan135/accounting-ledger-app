@@ -2,7 +2,6 @@ package com.pluralsight;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Locale;
 import java.util.Scanner;
 
 public class Main {
@@ -52,10 +51,13 @@ public class Main {
         double amount = scanner.nextDouble();
         scanner.nextLine();
 
-        Transaction deposit = new Transaction(LocalDate.now(), description,amount);
+        System.out.println("Enter vendor name: ");
+        String vendor = scanner.nextLine();
+
+        Transaction deposit = new Transaction(LocalDate.now(), description, vendor,amount);
         transactions.add(deposit);
 
-        System.out.println("Deposit of $" + amount + " added with description: " + description);
+        System.out.println("Deposit of $" + amount + " description: " + description);
     }
 
     // Created method for making a payment
@@ -67,10 +69,13 @@ public class Main {
         double amount = scanner.nextDouble();
         scanner.nextLine();
 
-        Transaction payment = new Transaction(LocalDate.now(), description, -amount);
+        System.out.println("Enter vendor name: ");
+        String vendor = scanner.nextLine();
+
+        Transaction payment = new Transaction(LocalDate.now(), description,vendor,-amount);
         transactions.add(payment);
 
-        System.out.println("Payment of $" + amount + " added with description: " + description);
+        System.out.println("Payment of $" + amount + " description: " + description);
     }
 
 //    Displaying ledger

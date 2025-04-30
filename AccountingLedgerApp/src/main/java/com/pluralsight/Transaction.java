@@ -3,16 +3,16 @@ package com.pluralsight;
 import java.time.LocalDate;
 
 public class Transaction {
-//    String type;
     private LocalDate date;
     private String description;
+    private String vendor;
     private double amount;
 
 
-    public Transaction(LocalDate date, String description,double amount ) {
-//        this.type = type;
+    public Transaction(LocalDate date, String description, String vendor, double amount ) {
         this.date = date;
         this.description = description;
+        this.vendor = vendor;
         this.amount = amount;
     }
 
@@ -24,6 +24,10 @@ public class Transaction {
         return description;
     }
 
+    public String getVendor() {
+        return vendor;
+    }
+
     public double getAmount() {
         return amount;
     }
@@ -32,6 +36,6 @@ public class Transaction {
 
     public String toString(){
 //        String type = (amount >= 0) ? "Deposit" : "Payment";
-        return  date + "|" + description + " | " + amount;
+        return  date + " | " + description + " | " + vendor + " | " + amount;
     }
 }

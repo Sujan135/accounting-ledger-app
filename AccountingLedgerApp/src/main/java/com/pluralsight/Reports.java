@@ -37,7 +37,7 @@ public class Reports {
                     forPreviousYear();
                     break;
                 case "5":
-                    searchByVendor();
+                    searchByVendor(scanner);
                     break;
                 case "0":
                     return;
@@ -107,8 +107,23 @@ public class Reports {
         }
     }
 
-    private void searchByVendor() {
-        System.out.println();
+    private void searchByVendor(Scanner scanner) {
+        System.out.println("Enter vendor name to search: ");
+        String vendorName = scanner.nextLine().toLowerCase();
+
+        boolean found = false;
+
+        System.out.println("Transactions for vendor: " + vendorName);
+
+        for (Transaction transaction : transactions){
+            if (transaction.getVendor().toLowerCase().equals(vendorName)){
+                System.out.println(transaction);
+                found = true;
+            }
+        }
+        if (!found){
+            System.out.println("No transaction found for vendor: " + vendorName);
+        }
     }
 
 }

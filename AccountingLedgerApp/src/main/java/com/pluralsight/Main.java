@@ -1,5 +1,6 @@
 package com.pluralsight;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Scanner;
@@ -13,10 +14,10 @@ public class Main {
         while(true) {
             System.out.println("Welcome to the Accounting Ledger!");
             System.out.println("Please select an option:");
-            System.out.println("D. Add Deposit");
-            System.out.println("P. Make Payment");
-            System.out.println("L. Ledger");
-            System.out.println("x. Exit");
+            System.out.println("D) Add Deposit");
+            System.out.println("P) Make Payment (Debit)");
+            System.out.println("L) Ledger");
+            System.out.println("x) Exit");
 
             String choice = scanner.nextLine().toUpperCase();
 
@@ -28,7 +29,8 @@ public class Main {
                     makePayment(scanner);
                     break;
                 case "L":
-                    displayLedger();
+                    Ledger ledger = new Ledger(transactions);
+                    ledger.displayMenu();
                     break;
                 case "X":
                     System.out.println("Exiting....");
@@ -50,7 +52,7 @@ public class Main {
         double amount = scanner.nextDouble();
         scanner.nextLine();
 
-        Transaction deposit = new Transaction("Deposit", description, amount);
+        Transaction deposit = new Transaction(LocalDate.now(), description,amount);
         transactions.add(deposit);
 
         System.out.println("Deposit of $" + amount + " added with description: " + description);
@@ -65,7 +67,7 @@ public class Main {
         double amount = scanner.nextDouble();
         scanner.nextLine();
 
-        Transaction payment = new Transaction("Payment", description, -amount);
+        Transaction payment = new Transaction(LocalDate.now(), description, -amount);
         transactions.add(payment);
 
         System.out.println("Payment of $" + amount + " added with description: " + description);

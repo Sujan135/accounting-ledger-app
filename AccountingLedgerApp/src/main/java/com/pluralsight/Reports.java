@@ -1,5 +1,6 @@
 package com.pluralsight;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -24,8 +25,10 @@ public class Reports {
 
             switch (option) {
                 case "1":
+                    forMonthToDate();
                     break;
                 case "2":
+                    forPreviousMonth();
                     break;
                 case "3":
                     break;
@@ -37,6 +40,39 @@ public class Reports {
                     return;
                 default:
                     System.out.println("Invalid option. Try again.");
+            }
+        }
+    }
+
+    private  void forMonthToDate() {
+        LocalDate today = LocalDate.now();
+        int currentMonth = today.getMonthValue();
+        int currentYear = today.getYear();
+
+        System.out.println("Transactions for this month");
+
+        for (Transaction transaction : transactions){
+            LocalDate transactionDate = transaction.getDate();
+
+            if (transactionDate.getMonthValue() == currentMonth &&
+                transactionDate.getYear() == currentYear) {
+                System.out.println(transaction);
+            }
+        }
+    }
+
+    private void forPreviousMonth() {
+        LocalDate today = LocalDate.now();
+        LocalDate previousMonth = today.minusMonths(1);
+
+        int previousMonthValue = previousMonth.getMonthValue();
+        int previousYear = previousMonth.getYear();
+
+        for (Transaction transaction : transactions){
+            LocalDate date = transaction.getDate();
+            if (date.getMonthValue() == previousMonthValue &&
+                date.getYear() == previousYear) {
+                System.out.println(transaction);
             }
         }
     }

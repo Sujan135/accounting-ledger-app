@@ -1,14 +1,23 @@
 package com.pluralsight;
 
+import java.time.LocalDate;
+
 public class Transaction {
-    String type;
+//    String type;
+    private LocalDate date;
     private String description;
     private double amount;
 
-    public Transaction(String type ,String description, double amount) {
-        this.type = type;
+
+    public Transaction(LocalDate date, String description,double amount ) {
+//        this.type = type;
+        this.date = date;
         this.description = description;
         this.amount = amount;
+    }
+
+    public LocalDate getDate() {
+        return date;
     }
 
     public String getDescription() {
@@ -19,12 +28,10 @@ public class Transaction {
         return amount;
     }
 
-    public String getType() {
-        return type;
-    }
+
 
     public String toString(){
 //        String type = (amount >= 0) ? "Deposit" : "Payment";
-        return type + ": $" + amount + " _ " + description;
+        return  date + "|" + description + " | " + amount;
     }
 }

@@ -33,6 +33,8 @@ public class Ledger {
                     displayPayments();
                     break;
                 case "R":
+                    Reports reports = new Reports(transactions);
+                    reports.displayReportMenu(scanner);
                     break;
                 case "H":
                     return;

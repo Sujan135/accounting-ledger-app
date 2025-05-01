@@ -3,10 +3,11 @@ package com.pluralsight;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Scanner;
 
 public class Reports {
-    private ArrayList<Transaction> transactions;
+    private final ArrayList<Transaction> transactions;
 
     public Reports(ArrayList<Transaction> transactions) {
         this.transactions = transactions;
@@ -133,21 +134,89 @@ public class Reports {
 
     private void forCustomSearch (Scanner scanner) {
 
-        System.out.println("Start Date");
-        String startDate = scanner.nextLine();
+        HashMap<String, String> filters = new HashMap<>();
 
-        System.out.println("End Date");
-        String endDate = scanner.nextLine();
+        System.out.println("--- Custom Search ---");
 
-        System.out.println("Description");
-        String description = scanner.nextLine().toLowerCase();
+        System.out.println("Start Date: ");
+        String startDate = scanner.nextLine().trim();
+        filters.put("startDate", startDate.isEmpty() ? null : startDate);
 
-        System.out.println("Vendor");
-        String vendor = scanner.nextLine().toLowerCase();
+        System.out.println("End Date: ");
+        String endDate = scanner.nextLine().trim();
+        filters.put("endDate", endDate.isEmpty() ? null : endDate);
 
-        System.out.println("Amount");
-        String amount = scanner.nextLine();
+        System.out.println("Description: ");
+        String description = scanner.nextLine().toLowerCase().trim();
+        filters.put("description", description.isEmpty() ? null : description);
 
+        System.out.println("Vendor: ");
+        String vendor = scanner.nextLine().toLowerCase().trim();
+        filters.put("vendor", vendor.isEmpty() ? null : vendor);
+
+        System.out.println("Amount: ");
+        String amount = scanner.nextLine().trim();
+        filters.put("amount",amount.isEmpty() ? null : amount);
+
+        boolean found = false;
+
+        for (Transaction transaction : transactions) {
+
+            boolean isMatch = true;
+
+            if (filters.get("startDate") !=null) {
+                LocalDateTime transactionDateTime = transaction.getDateTime();
+                LocalDate transactionDate = transactionDateTime.toLocalDate();
+                LocalDate start = LocalDate.parse(filters.get("startDate"));
+               if (transactionDate.isBefore(start)) {
+                   isMatch = false;
+               }
+            }
+
+            if (filters.get("endDate") !=null) {
+                LocalDateTime transactionDateTime = transaction.getDateTime();
+                LocalDate transactionDate = transactionDateTime.toLocalDate();
+                LocalDate end = LocalDate.parse(filters.get("endDate"));
+                if (transactionDate.isBefore(end)) {
+                    isMatch = false;
+                }
+            }
+
+            if (filters.get("description") != null) {
+                String transactionDescription = transaction.getDescription().toLowerCase();
+                String searchDescription = filters.get("description");
+                if (!transactionDescription.contains(searchDescription)){
+                    isMatch = false;
+                }
+            }
+            if (filters.get("vendor") != null) {
+                String transactionVendor = transaction.getVendor().toLowerCase();
+                String searchVendor = filters.get("vendor");
+                if (!transactionVendor.contains(searchVendor)){
+                    isMatch = false;
+                }
+            }
+
+            if (filters.get("amount") != null) {
+                try {
+                    double transactionAmount = transaction.getAmount();
+                    double searchAmount = Double.parseDouble(filters.get("amount"));
+                    if (transactionAmount != searchAmount) {
+                        isMatch = false;
+                    }
+                }catch (NumberFormatException e) {
+                    System.out.println("Invalid amount format.");
+                    isMatch = false;
+                }
+            }
+             if (isMatch) {
+                 System.out.println(transaction);
+                 found = true;
+             }
+        }
+
+        if (!found) {
+            System.out.println("No transaction found matching");
+        }
     }
-
 }

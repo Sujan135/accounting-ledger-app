@@ -4,12 +4,19 @@ This project provides users with an easy way to record deposits, payments, and v
 
 # Features
  •	Add Deposit: Record deposit transactions to track income.
+ 
 •	Make Payment: Log expenses or payments to track spending.
+
  •	View All Transactions: View the full ledger of deposits and payments.
+ 
  •	Filter by Type: View only deposits or only payments.
+ 
  •	Search by Vendor: Search for transactions related to a specific vendor.
+ 
  •	Generate Reports: Run reports for different time periods like "Month To Date", "Previous Year", etc.
+ 
  •	Save and Load from File: Transactions are saved to and loaded from a CSV file, ensuring persistence.
+ 
  •	Exit the Application: Exit the program smoothly.
 
 # My Project

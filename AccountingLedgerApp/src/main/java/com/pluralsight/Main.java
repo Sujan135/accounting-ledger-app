@@ -9,6 +9,7 @@ public class Main {
 
     public static void main(String[] args) {
 
+//        Loading existing transaction from file
         transactions = FileManager.loadTransactions();
         Scanner scanner = new Scanner(System.in);
 
@@ -59,7 +60,7 @@ public class Main {
         Transaction deposit = new Transaction(LocalDateTime.now(), description, vendor,amount);
         transactions.add(deposit);
 
-//        saving transaction to file
+//      Saving deposit to file
         FileManager.saveTransaction(deposit);
 
         System.out.println("Deposit of $" + amount + " with description: " + description);
@@ -80,7 +81,7 @@ public class Main {
         Transaction payment = new Transaction(LocalDateTime.now(), description, vendor,-amount);
         transactions.add(payment);
 
-//        saving transaction to file
+//      Saving payment to file
         FileManager.saveTransaction(payment);
 
         System.out.println("Payment of $" + amount + " with description: " + description);

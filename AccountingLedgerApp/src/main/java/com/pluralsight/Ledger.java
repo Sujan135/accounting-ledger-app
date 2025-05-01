@@ -6,6 +6,7 @@ import java.util.Scanner;
 public class Ledger {
     private ArrayList<Transaction> transactions;
 
+    // (constructor) receive and store data in transactions
     public Ledger(ArrayList<Transaction> transactions) {
         this.transactions = transactions;
     }

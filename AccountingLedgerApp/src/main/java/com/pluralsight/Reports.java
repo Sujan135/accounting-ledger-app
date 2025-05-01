@@ -113,6 +113,7 @@ public class Reports {
         }
     }
 
+    // Allow user to  search transactions based on vendor name
     private void searchByVendor(Scanner scanner) {
         System.out.println("Enter vendor name to search: ");
         String vendorName = scanner.nextLine().toLowerCase().trim();
@@ -132,17 +133,19 @@ public class Reports {
         }
     }
 
+
+    // Allow user to search item applying multiple filters
     private void forCustomSearch (Scanner scanner) {
 
         HashMap<String, String> filters = new HashMap<>();
 
         System.out.println("--- Custom Search ---");
 
-        System.out.println("Start Date: ");
+        System.out.println("Start Date (yyyy-mm-dd): ");
         String startDate = scanner.nextLine().trim();
         filters.put("startDate", startDate.isEmpty() ? null : startDate);
 
-        System.out.println("End Date: ");
+        System.out.println("End Date (yyyy-mm-dd): ");
         String endDate = scanner.nextLine().trim();
         filters.put("endDate", endDate.isEmpty() ? null : endDate);
 
@@ -163,6 +166,9 @@ public class Reports {
         for (Transaction transaction : transactions) {
 
             boolean isMatch = true;
+
+//            LocalDate transactionDate = transaction.getDateTime().toLocalDate();
+//            This is useful when comparing or filtering transactions based on dates without considering the time.
 
             if (filters.get("startDate") !=null) {
                 LocalDateTime transactionDateTime = transaction.getDateTime();
@@ -199,10 +205,10 @@ public class Reports {
 
             if (filters.get("amount") != null) {
                 try {
-                    double transactionAmount = transaction.getAmount();
                     double searchAmount = Double.parseDouble(filters.get("amount"));
+                    double transactionAmount = transaction.getAmount();
                     if (transactionAmount != searchAmount) {
-                        isMatch = false;
+                        isMatch= false;
                     }
                 }catch (NumberFormatException e) {
                     System.out.println("Invalid amount format.");

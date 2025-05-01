@@ -12,6 +12,7 @@ public class FileManager {
     private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd|HH:mm:ss");
 
     public static void saveTransaction(Transaction transaction) {
+        // Appends new transaction to the csv file
         try(FileWriter writer =new FileWriter(filePath, true)) {
             writer.write(String.format("%s|%s|%s|%.2f\n",
                     transaction.getDateTime().format(formatter),
@@ -32,11 +33,19 @@ public class FileManager {
             return transactions;
         }
 
+        // Read transactions from the file
         try (FileReader fileReader = new FileReader(filePath);
              BufferedReader bufferedReader = new BufferedReader(fileReader)) {
 
             String line;
+            boolean isFirstLine = true;
             while ((line = bufferedReader.readLine()) != null) {
+
+                if (isFirstLine){
+                    isFirstLine = false;
+                    continue;
+                }
+
                 String[] parts = line.split("\\|");
 
                 if (parts.length == 5) {

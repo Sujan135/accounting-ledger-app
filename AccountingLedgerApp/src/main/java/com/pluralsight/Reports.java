@@ -20,6 +20,7 @@ public class Reports {
             System.out.println("3) Year To Date");
             System.out.println("4) Previous Year");
             System.out.println("5) Search by Vendor");
+            System.out.println("6) Custom Search");
             System.out.println("0) Back");
 
             String option = scanner.nextLine();
@@ -39,6 +40,9 @@ public class Reports {
                     break;
                 case "5":
                     searchByVendor(scanner);
+                    break;
+                case "6":
+                    forCustomSearch(scanner);
                     break;
                 case "0":
                     return;
@@ -125,6 +129,25 @@ public class Reports {
         if (!found){
             System.out.println("No transaction found for vendor: " + vendorName);
         }
+    }
+
+    private void forCustomSearch (Scanner scanner) {
+
+        System.out.println("Start Date");
+        String startDate = scanner.nextLine();
+
+        System.out.println("End Date");
+        String endDate = scanner.nextLine();
+
+        System.out.println("Description");
+        String description = scanner.nextLine().toLowerCase();
+
+        System.out.println("Vendor");
+        String vendor = scanner.nextLine().toLowerCase();
+
+        System.out.println("Amount");
+        String amount = scanner.nextLine();
+
     }
 
 }

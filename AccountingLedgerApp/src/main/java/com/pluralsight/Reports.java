@@ -110,14 +110,14 @@ public class Reports {
 
     private void searchByVendor(Scanner scanner) {
         System.out.println("Enter vendor name to search: ");
-        String vendorName = scanner.nextLine().toLowerCase();
+        String vendorName = scanner.nextLine().toLowerCase().trim();
 
         boolean found = false;
 
         System.out.println("Transactions for vendor: " + vendorName);
 
         for (Transaction transaction : transactions){
-            if (transaction.getVendor().toLowerCase().equals(vendorName)){
+            if (transaction.getVendor().equalsIgnoreCase(vendorName)){
                 System.out.println(transaction);
                 found = true;
             }

@@ -8,6 +8,8 @@ public class Main {
     static ArrayList<Transaction> transactions = new ArrayList<>();
 
     public static void main(String[] args) {
+
+        transactions = FileManager.loadTransactions();
         Scanner scanner = new Scanner(System.in);
 
         while(true) {
@@ -57,6 +59,9 @@ public class Main {
         Transaction deposit = new Transaction(LocalDateTime.now(), description, vendor,amount);
         transactions.add(deposit);
 
+//        saving transaction to file
+        FileManager.saveTransaction(deposit);
+
         System.out.println("Deposit of $" + amount + " with description: " + description);
     }
 
@@ -74,6 +79,9 @@ public class Main {
 
         Transaction payment = new Transaction(LocalDateTime.now(), description, vendor,-amount);
         transactions.add(payment);
+
+//        saving transaction to file
+        FileManager.saveTransaction(payment);
 
         System.out.println("Payment of $" + amount + " with description: " + description);
     }

@@ -14,6 +14,13 @@ This project provides users with an easy way to record deposits, payments, and v
 
 # My Project
 
+One interesting piece of code in this project is how I parsed a date and time value from a single input line and split it into usable parts using LocalDateTime.
+LocalDateTime dateTime = LocalDateTime.parse(parts[0] + "|" + parts[1], formatter);
+I read a date and time string from input like:
+"2025-04-24|17:54:11"
+I split it using parts[0] (date) and parts[1] (time), then recombined it with a pipe (|)
+
+
 Welcome to my project! Below is the testing image:
 
 #FirstTesting

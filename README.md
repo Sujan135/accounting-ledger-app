@@ -24,23 +24,6 @@ A **Java-based command-line application** that allows users to record, manage, a
 
 All transactions are stored in a file called `transactions.csv` in this format:
 
-# Features
- •	Add Deposit: Record deposit transactions to track income.
- 
-•	Make Payment: Log expenses or payments to track spending.
-
- •	View All Transactions: View the full ledger of deposits and payments.
- 
- •	Filter by Type: View only deposits or only payments.
- 
- •	Search by Vendor: Search for transactions related to a specific vendor.
- 
- •	Generate Reports: Run reports for different time periods like "Month To Date", "Previous Year", etc.
- 
- •	Save and Load from File: Transactions are saved to and loaded from a CSV file, ensuring persistence.
- 
- •	Exit the Application: Exit the program smoothly.
-
 # My Project
 
 One interesting piece of code in this project is how I parsed a date and time value from a single input line and split it 

@@ -1,6 +1,28 @@
-# accounting-ledger-app
-A simple Java-based command-line application to track and manage financial transactions.
-This project provides users with an easy way to record deposits, payments, and view financial transaction history. The data is stored in a CSV file, making it easy to load, save, and manipulate records.
+# Accounting Ledger CLI Application
+
+A **Java-based command-line application** that allows users to record, manage, and report financial transactions. This capstone project was built as part of the Java Development Fundamentals course, demonstrating real-world use of Java I/O, classes, conditionals, loops, and data parsing.
+
+## 📁 Features
+
+- ✅ **Add Deposit**: Log income transactions
+- ✅ **Make Payment**: Track expenses or outgoing payments
+- ✅ **View Ledger**:
+  - View **All** transactions
+  - Filter by **Deposits** only
+  - Filter by **Payments** only
+- ✅ **Generate Reports**:
+  - Month to Date
+  - Previous Month
+  - Year to Date
+  - Previous Year
+  - Search by Vendor
+- ✅ **CSV File Support**: Transactions are saved to and loaded from `transactions.csv`
+- ✅ **User-Friendly CLI Navigation**
+- ✅ **Exit Option**: Gracefully exit the application
+
+## 📄 CSV Format
+
+All transactions are stored in a file called `transactions.csv` in this format:
 
 # Features
  •	Add Deposit: Record deposit transactions to track income.

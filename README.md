@@ -2,7 +2,7 @@
 
 A **Java-based command-line application** that allows users to record, manage, and report financial transactions. This capstone project was built as part of the Java Development Fundamentals course, demonstrating real-world use of Java I/O, classes, conditionals, loops, and data parsing.
 
-## 📁 Features
+## Features
 
 - ✅ **Add Deposit**: Log income transactions
 - ✅ **Make Payment**: Track expenses or outgoing payments
@@ -20,7 +20,7 @@ A **Java-based command-line application** that allows users to record, manage, a
 - ✅ **User-Friendly CLI Navigation**
 - ✅ **Exit Option**: Gracefully exit the application
 
-## 📄 CSV Format
+## CSV Format
 
 All transactions are stored in a file called `transactions.csv` in this format:
 

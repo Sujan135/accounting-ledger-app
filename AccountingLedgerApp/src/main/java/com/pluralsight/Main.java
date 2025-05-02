@@ -32,7 +32,7 @@ public class Main {
                     break;
                 case "L":
                     Ledger ledger = new Ledger(transactions);
-                    ledger.displayMenu();
+                    ledger.displayLedger();
                     break;
                 case "X":
                     System.out.println("Exiting....");
@@ -86,17 +86,4 @@ public class Main {
 
         System.out.println("Payment of $" + amount + " with description: " + description);
     }
-
-//    Displaying ledger
-    private static void displayLedger() {
-        System.out.println("Displaying the Ledger");
-        if (transactions.isEmpty()) {
-            System.out.println("No transaction recorded.");
-        } else {
-            for (Transaction transaction : transactions) {
-                System.out.println(transaction);
-            }
-        }
-    }
-
 }

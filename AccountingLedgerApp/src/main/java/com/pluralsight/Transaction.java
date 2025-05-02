@@ -1,14 +1,13 @@
 package com.pluralsight;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class Transaction {
-    private LocalDateTime dateTime;
-    private String description;
-    private String vendor;
-    private double amount;
+    private final LocalDateTime dateTime;
+    private final String description;
+    private final String vendor;
+    private final double amount;
 
 
     public Transaction(LocalDateTime dateTime, String description, String vendor, double amount ) {

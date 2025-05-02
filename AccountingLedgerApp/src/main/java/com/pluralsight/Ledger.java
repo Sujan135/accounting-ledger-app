@@ -4,14 +4,14 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Ledger {
-    private ArrayList<Transaction> transactions;
+    private final ArrayList<Transaction> transactions;
 
     // (constructor) receive and store data in transactions
     public Ledger(ArrayList<Transaction> transactions) {
         this.transactions = transactions;
     }
 
-    public void displayMenu(){
+    public void displayLedger(){
         Scanner scanner = new Scanner(System.in);
         while(true) {
             System.out.println("\nLedger Menu:");
